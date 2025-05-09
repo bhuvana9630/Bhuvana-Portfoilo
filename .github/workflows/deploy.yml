@@ -35,5 +35,5 @@ jobs:
         with:
           etag: true # Use etag to avoid unnecessary updates
           # The path to the directory containing the built files
-          branch:gh-pages #The branch the action will deploy to
+          branch: gh-pages #The branch the action will deploy to
           folder: dist # The default Vite build output directory
