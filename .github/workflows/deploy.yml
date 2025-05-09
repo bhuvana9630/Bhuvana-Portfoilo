@@ -1,0 +1,38 @@
+# This workflow will build and deploy a Vite React app to GitHub Pages
+# Name of the workflow
+name: Deploy to GitHub Pages
+
+# Trigger the workflow on pushes to the main branch
+on:
+  push:
+    branches: [ "main" ] # or "master"
+
+# Jobs to run
+jobs:
+  deploy:
+    # Set the runner environment
+    runs-on: ubuntu-latest
+    # Steps of the job
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Needed for proper history in GitHub Pages
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x' # Or your desired Node.js version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the app
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          etag: true # Use etag to avoid unnecessary updates
+          # The path to the directory containing the built files
+          folder: dist # The default Vite build output directory
