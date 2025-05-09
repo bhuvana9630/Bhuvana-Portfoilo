@@ -7,7 +7,7 @@ const Projects = () => {
       title: 'Electronic Health Record Dashboard',
       role: 'Senior Full-Stack Developer in CareFirst',
       description: 'A interactive dashboard designed for Doctors, Admin, Nurses, and Patients.',
-      image: '/EHRDashboard.jpg',
+      image: '/Bhuvana_Portfolio/EHRDashboard.jpg',
       tech: ['HTML5', 'CSS3', 'React', 'JavaScript', 'Redux', 'Axios','Spring Boot','OAuth2','WebSocket', 'Jest','Hibernate','JUnit','Cypress', 'MongoDB', 'AWS'],
     },
     {

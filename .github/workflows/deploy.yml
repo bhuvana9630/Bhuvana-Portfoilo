@@ -9,12 +9,12 @@ on:
 
 # Jobs to run
 jobs:
-  deploy:
+  build-and-deploy:
     # Set the runner environment
     runs-on: ubuntu-latest
     # Steps of the job
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Needed for proper history in GitHub Pages
@@ -22,7 +22,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18.x' # Or your desired Node.js version
+          node-version: 'lts/*' # Or your desired Node.js version
 
       - name: Install dependencies
         run: npm install
@@ -35,4 +35,5 @@ jobs:
         with:
           etag: true # Use etag to avoid unnecessary updates
           # The path to the directory containing the built files
+          branch:gh-pages #The branch the action will deploy to
           folder: dist # The default Vite build output directory
